@@ -1,9 +1,7 @@
 <?php
     //testetwig.php
-    require('vendor/autoload.php');
-    $loader = new \Twig\Loader\FilesystemLoader('./templates');
-    $twig = new \Twig\Environment($loader);
-
+    require('twig_carregar.php');
+    
     $template = $twig->load('teste.html');
 
 
