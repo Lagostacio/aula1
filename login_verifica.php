@@ -1,16 +1,30 @@
 <?php
 
+require('pdo.inc.php');
+
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
-echo $user.$pass;
+// prepara os dados da consulta
+$sql = $pdo->prepare('select * from usuarios where username = :user and senha = :pass ');
 
-if($user == 'inacio' && $pass == '123'){
+//adiciona os dados na consulta
+$sql->bindParam(":user",$user);
+$sql->bindParam(":pass",$pass);
+
+//roda a consulta
+$sql->execute();
+
+// se encontrou o usuario
+if($sql->rowCount()){
     // login feito com sucesso
+
+    $user = $sql->fetch(PDO::FETCH_OBJ);
+
 
     //cria uma sessão para armazenar o usuário
     session_start();
-    $_SESSION['user'] = 'Inacio';
+    $_SESSION['user'] = $user->nome;
 
     // Redireciona o usuário
     header('location:boasvindas.php');
