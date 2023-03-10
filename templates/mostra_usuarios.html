@@ -1,0 +1,13 @@
+<table border='1'>
+    <td>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Usuário</th>
+        <th>Senha</th>
+        <th>Admin</th>
+        <th>Ativo</th>
+    </td>
+    {% for usuario in usuarios %}
+        {{usuario.nome}}
+    {% endfor %}
+</table>
