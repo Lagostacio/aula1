@@ -1,13 +1,21 @@
+{% include "/inc/head.html" %}
 <table border='1'>
-    <td>
+    <tr>
         <th>Nome</th>
         <th>Email</th>
         <th>Usuário</th>
-        <th>Senha</th>
         <th>Admin</th>
         <th>Ativo</th>
-    </td>
+        <th>Ação</th>
+    </tr>
     {% for usuario in usuarios %}
-        {{usuario.nome}}
+    <tr>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.username}}</td>
+        <td>{{usuario.admin}}</td>
+        <td>{{usuario.ativo}}</td>
+        <td><a href="usuario_apagar.php?id={{usuario.id}}">Apagar</a></td>
+    </tr>
     {% endfor %}
 </table>

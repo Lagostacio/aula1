@@ -16,8 +16,8 @@ if (!$user || !$pass){
 
 $pass = password_hash($pass,PASSWORD_BCRYPT);
 
-$sql = $pdo->prepare("insert into usuarios (nome, email, username, senha, admin, ativo)
- values (:nome, :email, :user, :pass, :adm, :ativo);");
+$sql = $pdo->prepare('insert into usuarios (nome, email, username, senha, admin, ativo)
+ values (:nome, :email, :user, :pass, :adm, :ativo);');
 
 $sql->bindParam(":nome",$nome);
 $sql->bindParam(":email",$email);
@@ -27,3 +27,6 @@ $sql->bindParam(":adm",$admin);
 $sql->bindParam(":ativo",$ativo);
 
 $sql->execute();
+
+header('location: mostra_usuarios.php');
+die;
