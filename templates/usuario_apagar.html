@@ -5,4 +5,12 @@
 <p>Tem certeza que quer fazer isso?</p>
 <p>Nunca mais será possível recuperar este usuário 💣💣</p>
 
+<p><strong>Você está prestes a apagar o coitado do {{ usuario.username }}</strong></p>
+
+<form action="usuario_apagar.php" method="POST">
+    <input type="hidden" name='id' value='{{usuario.id}}'>
+    <input type="submit" value="Apagar o dito cujo">
+</form>
+<div><a href="mostra_usuarios.php">Cancelar</a></div>
+
 {% include "/inc/foot.html" %}

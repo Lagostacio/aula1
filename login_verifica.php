@@ -6,7 +6,7 @@ $user = $_POST['user'];
 $pass = $_POST['pass'];
 
 // prepara os dados da consulta
-$sql = $pdo->prepare('select * from usuarios where username = :user');
+$sql = $pdo->prepare('select * from usuarios where username = :user AND ativo = 1');
 
 //adiciona os dados na consulta
 $sql->bindParam(":user",$user);

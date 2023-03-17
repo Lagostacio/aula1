@@ -1,6 +1,7 @@
 {% include "/inc/head.html" %}
 <table border='1'>
     <tr>
+        {#<th>id</th>#}
         <th>Nome</th>
         <th>Email</th>
         <th>Usuário</th>
@@ -10,6 +11,7 @@
     </tr>
     {% for usuario in usuarios %}
     <tr>
+        {#<td>{{usuario.id}}</td>#}
         <td>{{usuario.nome}}</td>
         <td>{{usuario.email}}</td>
         <td>{{usuario.username}}</td>
