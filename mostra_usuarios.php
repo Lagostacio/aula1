@@ -1,5 +1,5 @@
 <?php
-
+require('verifica_Login.php');
 require('twig_carregar.php');
 require('pdo.inc.php');
 
