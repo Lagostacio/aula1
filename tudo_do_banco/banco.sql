@@ -37,3 +37,14 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `username`, `senha`, `admin`, `ativo`) 
 VALUES (NULL, 'Inácio Lago', 'inaciobortolaslago@gmail.com', 'inacio', '123', '1', '1'),
  (NULL, 'Fulano de tal', 'fulano@detal.com', 'fulano', '123', '0', '1');
+
+CREATE TABLE IF NOT EXISTS `sistematwig`.`arquivos` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_usuario` INT UNSIGNED NOT NULL,
+  `arquivo` VARCHAR(255) NULL,
+  `data` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `arquivos_usuarios`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `sistematwig`.`usuarios` (`id`)
+);
