@@ -1,15 +1,13 @@
 <?php
 
 require('twig_carregar.php');
+require('func/sanitize_filename.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$_FILES['arquivo']['error']){
-    /** 
-     * 
-     *echo "<pre>";
-     *var_dump($_FILES);
-     *echo "</pre>";
-     */
-     move_uploaded_file($_FILES['arquivo']['tmp_name'], 'uploads/'. $_FILES['arquivo']['name']);
+   
+    echo $arquivo = sanitize_filename($_FILES['arquivo']['name']);
+
+    move_uploaded_file($_FILES['arquivo']['tmp_name'], 'uploads/'. $arquivo);
 
 }
 
