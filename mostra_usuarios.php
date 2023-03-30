@@ -1,10 +1,13 @@
 <?php
 require('verifica_Login.php');
 require('twig_carregar.php');
-require('pdo.inc.php');
 
-$sql = $pdo->query("select * from usuarios where ativo = 1");
-$usuarios = $sql->fetchAll(PDO::FETCH_CLASS);
+
+require('models/Model.php');
+require('models/Usuario.php');
+
+$usr = new Usuario();
+var_dump($usr);
 
 echo $twig->render("mostra_usuarios.html",[
     'usuarios' => $usuarios,
