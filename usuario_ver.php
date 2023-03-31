@@ -6,9 +6,11 @@ require('twig_carregar.php');
 require('models/Model.php');
 require('models/Usuario.php');
 
-$usr = new Usuario();
-$usuarios = $usr->getAll();
+$id = $_GET['id'] ?? false;
 
-echo $twig->render("mostra_usuarios.html",[
-    'usuarios' => $usuarios,
+$usr = new Usuario();
+$info = $usr->getById($id);
+
+echo $twig->render("usuario_ver.html",[
+    'usuario'=>$info,
 ]);

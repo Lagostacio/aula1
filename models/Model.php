@@ -23,6 +23,14 @@ class Model {
         dbname={$this->dbname}",$this->user,$this->password);
     }
     public function getAll(){
+        $sql = $this->conex->query("SELECT * FROM {$this->table}");
+        return $sql->fetchall(PDO::FETCH_ASSOC);
+    }
+    public function getById($id){
+        
+        $sql = $this->conex->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+        $sql->execute([$id]);
+        return $sql->fetch(PDO::FETCH_ASSOC);
 
     }
 }
