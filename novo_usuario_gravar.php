@@ -1,13 +1,12 @@
 <?php
-
-require('pdo.inc.php');
+require('./models/Model.php');
+require('./models/Usuario.php');
 
 $nome = $_POST['nome'] ?? false;
 $email = $_POST['email'] ?? false;
 $user = $_POST['user'] ?? false;
 $pass = $_POST['pass'] ?? false;
 $admin = $_POST['admin'] ?? false;
-$ativo = 1;
 
 if (!$user || !$pass){
     header('location:novo_usuario.php');
@@ -16,17 +15,16 @@ if (!$user || !$pass){
 
 $pass = password_hash($pass,PASSWORD_BCRYPT);
 
-$sql = $pdo->prepare('insert into usuarios (nome, email, username, senha, admin, ativo)
- values (:nome, :email, :user, :pass, :adm, :ativo);');
 
-$sql->bindParam(":nome",$nome);
-$sql->bindParam(":email",$email);
-$sql->bindParam(":user",$user);
-$sql->bindParam(":pass",$pass);
-$sql->bindParam(":adm",$admin);
-$sql->bindParam(":ativo",$ativo);
-
-$sql->execute();
+$usr = new Usuario();
+$usr->create([
+    "nome"=>$nome,
+    "email"=>$email,
+    "username"=>$user,
+    "senha"=>$pass,
+    "admin"=>$admin,
+    "ativo"=>1
+]);
 
 header('location: mostra_usuarios.php');
 die;
