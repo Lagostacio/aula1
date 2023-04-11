@@ -1,21 +1,21 @@
-{% include "/inc/head.html" %}
+{% extends "./inc/base.html" %}
+{% block conteudo %}
+
 <table border='1'>
     <tr>
-        {#<th>id</th>#}
         <th>Nome</th>
-        <th>Email</th>
-        <th>Username</th>
-        <th>Senha</th>
-        <th>Admin</th>
-        <th>Ativo</th>
     </tr>
     <tr>
-        {#<td>{{usuario.id}}</td>#}
         <td>{{usuario.nome}}</td>
-        <td>{{usuario.email}}</td>
-        <td>{{usuario.username}}</td>
-        <td>{{usuario.senha}}</td>
-        <td>{{usuario.admin}}</td>
-        <td>{{usuario.ativo}}</td>
     </tr>
 </table>
+
+<form action="usuario_atualizar.php" method="post">
+    <input type="hidden" name="id" value="{{usuario.id}}">
+    <div>Nome:<input type="text" name="nome" value="{{usuario.nome}}"></div>
+    <div>Email:<input type="text" name="email" value="{{usuario.email}}"></div>
+    <div>Username:<input type="text" name="username" value="{{usuario.username}}"></div>
+    <input type="submit" value="Atualizar">
+</form>
+
+{% endblock %}
