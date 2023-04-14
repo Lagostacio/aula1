@@ -73,8 +73,8 @@ class Model {
         $upd = $this->conex->prepare($sql);
         $upd->execute($data);
 
-        $error = $upd->errorInfo();
-        
+        //$error = $upd->errorInfo();
+        // var_dump($error);die;
     }
 
     private function sql_fields($data){
