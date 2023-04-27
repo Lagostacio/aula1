@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
     }
 
-    header('location: mostra_usuarios.php');
+    header('location: /mostra_usuarios');
     die;
 
 }

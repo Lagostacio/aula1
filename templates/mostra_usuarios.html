@@ -1,4 +1,10 @@
-{% include "/inc/head.html" %}
+{% extends "inc/base.html" %}
+
+{% block titulo %}
+    Usuários
+{% endblock %}
+
+{% block conteudo %}
 <table border='1'>
     <tr>
         {#<th>id</th>#}
@@ -10,10 +16,11 @@
     {% for usuario in usuarios %}
     <tr>
         {#<td>{{usuario.id}}</td>#}
-        <td><a href="usuario_ver.php?id={{usuario.id}}">{{usuario.nome}}</a></td>
+        <td><a href="/usuario_ver/{{usuario.id}}">{{usuario.nome}}</a></td>
         <td>{{usuario.admin}}</td>
         <td>{{usuario.ativo}}</td>
-        <td><a href="usuario_apagar.php?id={{usuario.id}}">Apagar</a></td>
+        <td><a href="/usuario_apagar/{{usuario.id}}">Apagar</a></td>
     </tr>
     {% endfor %}
 </table>
+{% endblock %}

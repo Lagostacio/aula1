@@ -7,10 +7,10 @@
 
 <p><strong>Você está prestes a apagar o coitado do {{ usuario.username }}</strong></p>
 
-<form action="usuario_apagar.php" method="POST">
+<form action="/usuario_apagar" method="POST">
     <input type="hidden" name='id' value='{{usuario.id}}'>
     <input type="submit" value="Apagar o dito cujo">
 </form>
-<div><a href="mostra_usuarios.php">Cancelar</a></div>
+<div><a href="/mostra_usuarios">Cancelar</a></div>
 
 {% include "/inc/foot.html" %}

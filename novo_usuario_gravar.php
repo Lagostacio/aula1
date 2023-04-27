@@ -9,7 +9,7 @@ $pass = $_POST['pass'] ?? false;
 $admin = $_POST['admin'] ?? false;
 
 if (!$user || !$pass){
-    header('location:novo_usuario.php');
+    header('location:novo_usuario');
     die;
 }
 
@@ -26,5 +26,5 @@ $usr->create([
     "ativo"=>1
 ]);
 
-header('location: mostra_usuarios.php');
+header('location: mostra_usuarios');
 die;

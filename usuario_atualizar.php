@@ -23,5 +23,5 @@ $usr->update([
 ],$id);
 
 
-header('location:mostra_usuarios.php');
+header('location:/mostra_usuarios');
 die;

@@ -24,7 +24,7 @@ if($sql->rowCount()){
     if(!password_verify($pass,$user->senha)){
         
         // falha no login
-        header('location:login.php?erro=1');
+        header('location:login?erro=1');
         die;
         
     }
@@ -35,11 +35,11 @@ if($sql->rowCount()){
     $_SESSION['user'] = $user->nome;
 
     // Redireciona o usuário
-    header('location:boasvindas.php');
+    header('location:boasvindas');
     die;
     
 } else{
     // falha no login
-    header('location:login.php?erro=1');
+    header('location:login?erro=1');
     die;
 }
