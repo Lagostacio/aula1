@@ -1,7 +1,11 @@
 {#templates/produtos.html#}
-{% include "inc/head.html" %}
+{% extends "inc/base.html" %}
 
-    <h1>Produtos</h1>
+{% block titulo %}
+    Produtos
+{% endblock %}
+
+{% block conteudo %}
     <p>Listagem de produtos</p>
     
     <p>Última atualização: {{"now"|date('d/m/Y H:i:s','America/Sao_Paulo')}}</p>
@@ -26,4 +30,4 @@
 
     </table>
 
-{% include "inc/foot.html" %}
+{% endblock %}
