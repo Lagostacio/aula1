@@ -2,32 +2,36 @@
 {% extends "inc/base.html" %}
 
 {% block titulo %}
-    Produtos
+    Listagem de Produtos
 {% endblock %}
 
 {% block conteudo %}
-    <p>Listagem de produtos</p>
     
-    <p>Última atualização: {{"now"|date('d/m/Y H:i:s','America/Sao_Paulo')}}</p>
 
-    <table border='1'>
-        <tr>
-            <th>Produto</th>
-            <th>Preço</th>
-        </tr>
-
-        {% for prod in produtos %}
+    <table class='w-full border-collapse border border-gray-200 bg-white text-left text-xl text-gray-500'>
+        <thead class='bg-gray-50'>
             <tr>
-                <td>{{ prod.nome }}</td>
-                <td>R$ {{ prod.preco|number_format(2,',','.') }}</td>
+                <th class="px-6 py-4 font-bold text-gray-900">Produto</th>
+                <th class="px-6 py-4 font-bold text-gray-900">Preço</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+        {% for prod in produtos %}
+
+            <tr>
+                <td class="px-6 py-4 font-medium text-gray-900"><a href="/produto_ver/{{prod.id}}">{{ prod.nome }}</a></td>
+                <td class="px-6 py-4 font-medium text-gray-900">R$ {{ prod.preco|number_format(2,',','.') }}</td>
             </tr>
 
         {% else %}
             <tr>
-                <td colspan="2">Nenhum produto</td>
+                <td  class="px-6 py-4 font-medium text-gray-900 text-center" colspan="2">Nenhum produto</td>
             </tr>        
         {% endfor %}
-
+        </tbody>
     </table>
-
+    <p>Última atualização: {{"now"|date('d/m/Y H:i:s','America/Sao_Paulo')}}</p>
+    <a href="/novo_produto">
+        <button type="button" class="rounded-lg border border-purple-500 bg-purple-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-purplu-700 hover:bg-purple-700 focus:ring focus:ring-purple-200 disabled:cursor-not-allowed disabled:border-violet-300 disabled:bg-violet-300">Adicionar Produto</button>
+    </a>
 {% endblock %}
